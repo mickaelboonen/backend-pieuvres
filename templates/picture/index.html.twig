@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Picture index{% endblock %}
+
+{% block body %}
+    <h1>Picture index</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Spectacle</th>
+                <th>Credits</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for picture in pictures %}
+            <tr>
+                <td>{{ picture.id }}</td>
+                <td>
+                    <img src="{{ picture.url }}" alt="Logo de l'Université de Nîmes" style="width: 10rem"/>
+                </td>
+                <td>{{ picture.playId }}</td>
+                <td>{{ picture.credits }}</td>
+                <td>
+                    <a href="{{ path('app_picture_show', {'id': picture.id}) }}">show</a>
+                    <a href="{{ path('app_picture_edit', {'id': picture.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picture_new') }}">Create new</a>
+{% endblock %}
+
+

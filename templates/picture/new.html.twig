@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Picture{% endblock %}
+
+{% block body %}
+    <h1>Create new Picture</h1>
+
+
+    <div>
+        URL Generator
+    </div>
+    {{ include('picture/_form.html.twig') }}
+
+    <a href="{{ path('app_picture_index') }}">back to list</a>
+{% endblock %}

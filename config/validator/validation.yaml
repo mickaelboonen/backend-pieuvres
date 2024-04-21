@@ -1,0 +1,11 @@
+App\Entity\Picture: 
+  properties:
+    credits: 
+      - NotBlank: 
+          message: Merci de remplir le champ Email.
+    attachment:
+      -   All:
+            - File:
+                maxSize: 1024k
+                mimeTypes: [application/pdf, application/x-pdf, image/png]
+                mimeTypesMessage: Please upload a valid PDF #TODO
